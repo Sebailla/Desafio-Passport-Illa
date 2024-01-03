@@ -5,7 +5,8 @@
             <div class="productsHeader">
                 {{#if isAuthenticated}}
                 <a href="/products" class="btnPrincipal">Home</a>
-                <a href="/realtimeproducts" class="btnPrincipal">Cargar Producto</a>
+                <a href="/realtimeproducts" class="btnPrincipal">Real Time Productos</a>
+                <a href="/addProduct" class="btnPrincipal">Nuevo Producto</a>
                 <a href="/carts/656683289400ef10584a6a01" class="btnPrincipal">Carrito</a>
                 <p>Bienvenido {{user.firstName}} !!</p>
                 {{#if user.image}}
@@ -13,8 +14,8 @@
                         <img src="{{user.image}}" alt="Img User" class="userImg">
                     </div>
                 {{/if}}
-                <a href="/logout" class="btnPrincipal">Logout</a>
                 <a href="/chat"><img src="./icon/chat.svg" alt=""></a>
+                <a href="/logout" class="btnPrincipal">Logout</a>
                 {{else}}
                 <P>Bienvenido, debes logearte!</P>
                 <a href="/register" class="btnPrincipal">Register</a>

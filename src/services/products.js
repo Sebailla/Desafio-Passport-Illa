@@ -55,9 +55,18 @@ export const getProductByIdServices = async (pid) => {
     }
 }
 
-export const addProductServices = async ({ title, description, price, thumbnail, code, stock, category, status }) => {
+export const getProductByCodeServices = async (code) => {
     try {
-        return await ProductsModel.create({ title, description, price, thumbnail, code, stock, category, status })
+        return await ProductsModel.findOne({code})
+    } catch (error) {
+        console.log('Error en getProductByCodeServices:', error)
+        throw error
+    }
+}
+
+export const addProductServices = async (body) => {
+    try {
+        return await ProductsModel.create({ ...body })
     } catch (error) {
         console.log('Error en addProductServices:', error)
         throw error

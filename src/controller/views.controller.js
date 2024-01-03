@@ -13,7 +13,13 @@ export const productsView = async (req = request, res = response) => {
 export const realTimeProductsView = async (req = request, res = response) => {
     const user = req.session.user
     const isAuthenticated = req.session.user !== undefined
-    return res.render('realTimeProducts', { title: 'Productos en tiempo real', isAuthenticated, user })
+    return res.render('realTimeProducts', { title: 'Real Time Product', isAuthenticated, user })
+}
+
+export const addProductView = async (req = request, res = response) => {
+    const user = req.session.user
+    const isAuthenticated = req.session.user !== undefined
+    return res.render('addProduct', { title: 'Agregar Producto', isAuthenticated, user })
 }
 
 

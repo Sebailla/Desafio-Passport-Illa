@@ -6,8 +6,10 @@ import { admin, auth } from '../middleware/auth.js'
 import { isSessionActive } from '../middleware/isSessionActive.js'
 
 //? Controlers
-import { cartIdView, chatView, loginView, logoutView, productsView, realTimeProductsView, registerView, rootView } from '../controller/views.controller.js'
+import { addProductView, cartIdView, chatView, loginView, logoutView, productsView, realTimeProductsView, registerView, rootView } from '../controller/views.controller.js'
 import { postLogin } from '../controller/session.controller.js'
+import { uploader } from '../config/multer.config.js'
+import { addProduct } from '../controller/products.controller.js'
 
 
 
@@ -29,6 +31,9 @@ router.get('/products', [auth], productsView)
 router.get('/realtimeproducts', [auth, admin], realTimeProductsView)
 router.get('/carts/:cid', [auth], cartIdView)
 router.get('/chat', [auth], chatView)
+
+router.get('/addProduct', [auth, admin], addProductView)
+router.post('/addProduct', [auth, uploader.single('file')], addProduct )
 
 
 //? Router GitHub Login
